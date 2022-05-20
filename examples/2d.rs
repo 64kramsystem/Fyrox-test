@@ -50,27 +50,25 @@ impl SceneLoader {
             }))
             .build(&mut scene.graph);
 
-        // Add some sprites.
-        for y in 0..10 {
-            for x in 0..10 {
-                let sprite_size = 0.35;
-                let spacing = 0.1;
-                RectangleBuilder::new(
-                    BaseBuilder::new().with_local_transform(
-                        TransformBuilder::new()
-                            .with_local_position(Vector3::new(
-                                0.1 + x as f32 * (sprite_size + spacing),
-                                0.1 + y as f32 * (sprite_size + spacing),
-                                0.0, // Keep Z at zero.
-                            ))
-                            .with_local_scale(Vector3::new(sprite_size, sprite_size, f32::EPSILON))
-                            .build(),
-                    ),
-                )
-                .with_texture(resource_manager.request_texture("examples/data/starship.png"))
-                .build(&mut scene.graph);
-            }
-        }
+        // let local_transform = scene.graph[camera].local_transform_mut();
+        // local_transform.set_rotation(UnitQuaternion::from_euler_angles(
+        //     180.0_f32.to_radians(),
+        //     0.0,
+        //     0.0,
+        // ));
+
+        // Add sprite.
+        let sprite_size = 0.35; // inappropriate; the sprite is not square
+        RectangleBuilder::new(
+            BaseBuilder::new().with_local_transform(
+                TransformBuilder::new()
+                    .with_local_position(Vector3::new(1.5, 0.1, 0.0))
+                    .with_local_scale(Vector3::new(sprite_size, sprite_size, f32::EPSILON))
+                    .build(),
+            ),
+        )
+        .with_texture(resource_manager.request_texture("examples/data/starship.png"))
+        .build(&mut scene.graph);
 
         // Add some lights.
         // PointLightBuilder::new(
