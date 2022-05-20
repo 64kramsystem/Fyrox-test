@@ -4,6 +4,7 @@
 //!
 //! This example shows simple 2D scene with light sources.
 
+use fyrox::dpi::PhysicalSize;
 use fyrox::scene::camera::{OrthographicProjection, Projection};
 use fyrox::{
     core::{algebra::Vector3, pool::Handle},
@@ -127,6 +128,12 @@ impl GameState for Game {
     {
         // Create test scene.
         let loader = SceneLoader::load_with(engine.resource_manager.clone());
+
+        let window = engine.get_window();
+        window.set_inner_size(PhysicalSize {
+            width: 1024,
+            height: 768,
+        });
 
         Self {
             // Create input controller - it will hold information about needed actions.
