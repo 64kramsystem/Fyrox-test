@@ -20,7 +20,7 @@ use fyrox::{
         base::BaseBuilder,
         camera::CameraBuilder,
         dim2::rectangle::RectangleBuilder,
-        light::{point::PointLightBuilder, spot::SpotLightBuilder, BaseLightBuilder},
+        light::{spot::SpotLightBuilder, BaseLightBuilder},
         node::Node,
         transform::TransformBuilder,
         Scene,
@@ -73,18 +73,18 @@ impl SceneLoader {
         }
 
         // Add some lights.
-        PointLightBuilder::new(
-            BaseLightBuilder::new(
-                BaseBuilder::new().with_local_transform(
-                    TransformBuilder::new()
-                        .with_local_position(Vector3::new(2.5, 2.5, 0.0))
-                        .build(),
-                ),
-            )
-            .with_scatter_enabled(false),
-        )
-        .with_radius(1.0)
-        .build(&mut scene.graph);
+        // PointLightBuilder::new(
+        //     BaseLightBuilder::new(
+        //         BaseBuilder::new().with_local_transform(
+        //             TransformBuilder::new()
+        //                 .with_local_position(Vector3::new(2.5, 2.5, 0.0))
+        //                 .build(),
+        //         ),
+        //     )
+        //     .with_scatter_enabled(false),
+        // )
+        // .with_radius(1.0)
+        // .build(&mut scene.graph);
 
         let spot_light = SpotLightBuilder::new(
             BaseLightBuilder::new(
