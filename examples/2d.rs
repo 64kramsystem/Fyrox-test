@@ -96,7 +96,7 @@ impl SceneLoader {
             )
             .with_scatter_enabled(false),
         )
-        .with_distance(2.0)
+        // .with_distance(2.0)
         .build(&mut scene.graph);
 
         Self {
