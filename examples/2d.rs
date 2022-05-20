@@ -170,7 +170,7 @@ impl GameState for Game {
         if let Some(offset) = offset.try_normalize(f32::EPSILON) {
             graph[self.camera]
                 .local_transform_mut()
-                .offset(offset.scale(0.1));
+                .offset(offset.scale(0.02));
         }
 
         let local_transform = graph[self.spot_light].local_transform_mut();
